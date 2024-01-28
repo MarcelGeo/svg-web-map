@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .svg-map {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .svg-map-container {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="svg-map">
+      <div class="svg-map-container">
+        <object
+          id="svg-map"
+          data="/static/okres_3_simpl_1000m.42e58568-17ed-4890-a74e-28d5cc18f32f.Svg"
+        ></object>
+      </div>
+      <div class="svg-map-legend"></div>
+    </div>
+
+    <script src="svg-map.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
