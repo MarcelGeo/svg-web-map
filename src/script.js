@@ -4,7 +4,7 @@ const styles = [
         background: '#ece1cc',
         hover: '#F5F5F5',
         stroke: '#ffffff',
-        label: 'Zapad'
+        label: 'Západ'
     },
     {
         ids: [10, 11, 12, 13,15, 16, 19, 20, 21, 22, 25, 27, 28, 29, 44, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 58, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78],
@@ -18,7 +18,7 @@ const styles = [
         background: '#c6a465',
         hover: '#F5F5F5',
         stroke: '#ffffff',
-        label: 'Vychod'
+        label: 'Východ'
     }
 ]
 
