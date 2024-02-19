@@ -1,22 +1,106 @@
+const states = [
+  "Bratislava I",
+  "Bratislava II",
+  "Bratislava III",
+  "Bratislava IV",
+  "Bratislava V",
+  "Malacky",
+  "Pezinok",
+  "Senec",
+  "Dunajská Streda",
+  "Galanta",
+  "Hlohovec",
+  "Piešťany",
+  "Senica",
+  "Skalica",
+  "Považská Bystrica",
+  "Trnava",
+  "Bánovce nad Bebravou",
+  "Ilava",
+  "Bytča",
+  "Myjava",
+  "Nové Mesto nad Váhom",
+  "Partizánske",
+  "Zlaté Moravce",
+  "Prievidza",
+  "Púchov",
+  "Trenčín",
+  "Komárno",
+  "Levice",
+  "Topoľčany",
+  "Nitra",
+  "Nové Zámky",
+  "Šaľa",
+  "Čadca",
+  "Dolný Kubín",
+  "Kysucké Nové Mesto",
+  "Liptovský Mikuláš",
+  "Martin",
+  "Námestovo",
+  "Ružomberok",
+  "Turčianske Teplice",
+  "Tvrdošín",
+  "Stropkov",
+  "Žilina",
+  "Banská Bystrica",
+  "Banská Štiavnica",
+  "Brezno",
+  "Detva",
+  "Krupina",
+  "Krupina",
+  "Poltár",
+  "Revúca",
+  "Rimavská Sobota",
+  "Veľký Krtíš",
+  "Zvolen",
+  "Žarnovica",
+  "Žiar nad Hronom",
+  "Bardejov",
+  "Humenné",
+  "Košice IV",
+  "Kežmarok",
+  "Levoča",
+  "Medzilaborce",
+  "Poprad",
+  "Prešov",
+  "Sabinov",
+  "Snina",
+  "Stará Ľubovňa",
+  "Svidník",
+  "Vranov nad Topľou",
+  "Gelnica",
+  "Košice I",
+  "Košice II",
+  "Košice III",
+  "Košice - okolie",
+  "Michalovce",
+  "Rožňava",
+  "Sobrance",
+  "Spišská Nová Ves",
+  "Trebišov"
+]
+
+const hover = '#F5F5F5'
+
 const styles = [
     {
-        ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 30, 31, 26],
+        ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 30, 31, 26, 15],
         background: '#ece1cc',
-        hover: '#F5F5F5',
+        hover: hover,
         stroke: '#ffffff',
         label: 'Západ'
     },
     {
-        ids: [10, 11, 12, 13,15, 16, 19, 20, 21, 22, 25, 27, 28, 29, 44, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 58, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78],
+        ids: [10, 11, 12, 13, 16, 19, 20, 21, 22, 25, 27, 28, 29, 44, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 58, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78],
         background: '#d9c298',
-        hover: '#F5F5F5',
+        hover: hover,
         stroke: '#ffffff',
         label: 'Stred'
     },
     {
         ids: [14, 17, 18, 23, 24, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 45, 56, 57, 59, 60, 61, 62, 63, 64, 65, 66, 67,68],
         background: '#c6a465',
-        hover: '#F5F5F5',
+        hover: hover,
         stroke: '#ffffff',
         label: 'Východ'
     }
@@ -48,6 +132,7 @@ function appendToLegend(style) {
 }
 
 const element = document.querySelector("#svg-map");
+const svgContainer = document.querySelector(".svg-map-container").getBoundingClientRect();
 element.addEventListener("load", function () {
   console.log("SVG loaded");
   const svgElement = element.contentDocument;
@@ -58,6 +143,7 @@ element.addEventListener("load", function () {
       svgMap.changeBackground(styles[i].ids[j], styles[i].background);
       svgMap.changeStroke(styles[i].ids[j], styles[i].stroke);
       svgMap.hoverStyle(styles[i].ids[j], styles[i].hover, styles[i].background);
+      svgMap.tooltip(styles[i].ids[j], [styles[i].label, states[styles[i].ids[j]]], svgContainer.left, svgContainer.top, "rgb(34, 34, 34)");
     }
   }
 });
